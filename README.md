@@ -43,8 +43,6 @@
       $ vue create {프로젝트 이름}
       ```
 
-      
-
 3. 프로젝트 폴더 구조
 
    ```
@@ -61,4 +59,18 @@
    		package.json
    ```
 
-   
+
+
+## 2. DRF 모델링
+
+## 3. Vue
+
+### Vue-router
+
+```bash
+$ npm i vue-router
+$ vue add router
+> Still proceed? y
+> Use history mode for router? (Requires proper server setup for index fallback in production) y
+```
+
