@@ -22,7 +22,7 @@ export default {
   },
   mounted() {
     //axios 요청
-    axios.get('http://127.0.0.1:8000/api/vi/todos/')
+    axios.get('http://127.0.0.1:8000/api/v1/todos/')
       .then(response => {
         console.log(response) // 만약, 오류가 발생하게 되면 ESLint 설정을 package.json을 추가!
       })
