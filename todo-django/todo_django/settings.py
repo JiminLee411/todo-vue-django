@@ -125,7 +125,7 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'todos.User'
 
 # CORS
-CORS_ORIGIN_ALLOW_ALL = True # CORS 모두 추가
+CORS_ORIGIN_ALLOW_ALL = True # 편의상 CORS 모든 도메인 추가
 
 CORS_ORIGIN_WHITE_LIST = [
     # 추후에 배포시 vue에서만 요청 보낼 수 있도록 정의!!

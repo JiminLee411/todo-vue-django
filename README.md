@@ -74,3 +74,52 @@ $ vue add router
 > Use history mode for router? (Requires proper server setup for index fallback in production) y
 ```
 
+## 4. Todos axios 요청
+
+1. getTodos 메소드 정의
+
+   ```javascript
+   //Home.vue
+   getTodos() {
+     //axios 요청
+     axios.get('http://127.0.0.1:8000/api/v1/todos/')
+       .then(response => {
+         console.log(response) // 만약, 오류가 발생하게 되면 ESLint 설정을 package.json을 추가!
+         this.todos = response.data
+       })
+       .catch(error => {
+         console.log(error)
+       })
+   }
+   ```
+
+2. mounted에서 호출
+
+   ```javascript
+   //Home.vue
+   mounted() {
+     this.getTodos()
+   }
+   ```
+
+3. CORS 오류 발생
+
+   > 해결하기 위해서는 django 서버에서 설정이 필요
+
+4. `django-cors-headers` 패키지 활용
+
+   * [Github 참고]()
+
+   ```bash
+   $ pip install django-cors-headers
+   ```
+
+   * `INSTALLED_APPS`, `MIDDLEWARE` 설정
+   * `CORS_ORIGIN_ALLOW_ALL` : True시 모든 도메인에서 요청 가능
+   * `CORS_ORIGIN_WHITELIST` : 위의 옵션을 False로 하고, 화이트리스트에 직접 도메인 등록
+   * 기타 옵션들도 확인 해볼것
+
+5. Vue에서 다시 요쳥 보내보기
+
+## 5. TodoForm componenet를 통해 투두 등록하기
+
