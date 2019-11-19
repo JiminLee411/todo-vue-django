@@ -108,7 +108,7 @@ $ vue add router
 
 4. `django-cors-headers` 패키지 활용
 
-   * [Github 참고]()
+   * [Github 참고](https://github.com/adamchainz/django-cors-headers)
 
    ```bash
    $ pip install django-cors-headers
@@ -123,3 +123,54 @@ $ vue add router
 
 ## 5. TodoForm componenet를 통해 투두 등록하기
 
+
+
+## 6. 로그인 기능
+
+> JWT (JSON Web Token) : 토큰 기반 로그인 인증
+>
+> 1. 클라이언트(Vue) 로그인 정보(username, password)를 서버(Django)로 전송
+> 2. 서버는 해당 정보를 바탕으로 Token을 발급 및 암호화
+> 3. 클라이언트는 Token을 받아서 매 요청때마다 헤더에 해당 Token 정보를 추가해서 보냄
+> 4. 서버에서는 매번 Token이 유효한지 확인 및 데이터 전송
+> 5. 클라이언트는 전송된 값을 디코딩하여사용자 정보 활용
+>
+> JWT는 기본적으로 헤더, Payload, Verify signature로 구성된다.
+>
+> https://jwt.io에서 직접 디코딩을 해볼 수 있다.
+
+### 1) Django
+
+```bash
+$ pip install djangorestframework-jwt
+```
+
+### 2) Vue
+
+1. 로그인 관련 컴포넌트 생성
+
+2. 이벤트를 통해 axios 요청
+
+3. token 값 저장
+
+   1. `vue-session`
+
+      ```bash
+      $ npm i vue-session
+      ```
+
+   2. `src/main.js`
+
+      ```javascript
+      import VueSession from 'vue-session'
+      Vue.use(VueSession)
+      ```
+
+   3. `vue-session`  활용하여 저장
+
+      ```javascript
+      this.$session.start()
+      this.$session.set('jwt', token)
+      ```
+
+      
